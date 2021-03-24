@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 
 RUN apt update && apt upgrade -y
-ADD ./jdk-8u281-linux-x64.tar.gz /usr/lib/jvm
+ADD jdk-8u281-linux-x64.tar.gz /usr/lib/jvm
 RUN update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_281/bin/java" 1
 RUN update-alternatives --set java /usr/lib/jvm/jdk1.8.0_281/bin/java
 RUN apt install maven git -y
