@@ -1,0 +1,24 @@
+version: "3"
+services:
+  postgres:
+    image: postgis/postgis:11-3.1
+    container_name: postgres
+    ports:
+      - 5432:5432
+        #    volumes:
+        #pgdata:/var/lib/postgresql
+    environment:
+        POSTGRES_PASSWORD: "postgres"
+        POSTGRES_DB: "geotools"
+  geotools:
+    build: .
+    container_name: geotools
+    depends_on:
+      - postgres
+    command: sh -c /test/test.sh
+    #    volumes:
+    #  - /home/dru/Documents/geotools:/code
+
+        #volumes:
+        #- pgdata:
+
