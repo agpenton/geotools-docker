@@ -1,7 +1,9 @@
 pipeline {
     //agent any
     agent {
-        label 'wk1'
+        node {
+	   label 'vm1'
+	}
     }
     stages {
         stage('Build') {
