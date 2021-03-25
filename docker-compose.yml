@@ -11,13 +11,13 @@ services:
         POSTGRES_PASSWORD: "postgres"
         POSTGRES_DB: "geotools"
   geotools:
-    build: .
+    image: agpenton/geotools
     container_name: geotools
     depends_on:
       - postgres
     command: sh -c /test/test.sh
-    #    volumes:
-    #  - /home/dru/Documents/geotools:/code
+    #volumes:
+    #  - ./report:/code/target/site:rw
 
         #volumes:
         #- pgdata:

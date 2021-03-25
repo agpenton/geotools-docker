@@ -7,5 +7,6 @@ RUN update-alternatives --set java /usr/lib/jvm/jdk1.8.0_281/bin/java
 RUN apt install maven git -y
 RUN git clone -b gt-docker https://github.com/agpenton/geotools.git /code
 COPY sqlserver.properties ~/.geotools/sqlserver.properties
+COPY sqlserver.properties /root/.geotools/postgis.properties
 COPY test.sh /test/test.sh
 RUN chmod 777 /test/test.sh
