@@ -3,7 +3,6 @@ pipeline {
     agent {
         label 'wk1'
     }
-   }
     stages {
         stage('Build') {
             steps {
