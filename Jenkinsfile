@@ -3,21 +3,11 @@ pipeline {
     agent {
         label 'wk1'
     }
-    parameters {
-       gitParameter branch: '', branchFilter: '.*', defaultValue: 'main', description: '', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'DESCENDING_SMART', tagFilter: '*', type: 'PT_BRANCH', useRepository: 'https://github.com/agpenton/geotools-docker.git'
-    }
+   }
     stages {
         stage('Build') {
             steps {
-                checkout([$class: 'GitSCM',
-                          branches: [[name: "${params.BRANCH}"]],
-                          doGenerateSubmoduleConfigurations: false,
-                          extensions: [],
-                          gitTool: 'Default',
-                          submoduleCfg: [],
-                          userRemoteConfigs: [[url: 'https://github.com/agpenton/geotools-docker.git']]
-                        ])
-            }
+                checkout([$class: 'GitSCM', branches: [[name: '*/12.6']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/agpenton/geotools-docker.git']]])            }
         }
         stage('PostGIS') {
             steps {
