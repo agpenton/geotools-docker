@@ -11,8 +11,10 @@ pipeline {
         stage('PostGIS') {
             steps {
                 //step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: false])
-                sh "docker-compose up -d"
+                sh "docker-compose down --remove-orphans"
+		sh "docker-compose up -d"
                 sh "docker-compose logs -f geotools"
+		sh "docker-compose down --remove-orphans"
             }
         }
     }
