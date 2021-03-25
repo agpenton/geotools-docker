@@ -6,7 +6,7 @@ pipeline {
    stages {
         stage('Build') {
             steps {
-               checkout([$class: 'GitSCM', branches: [[name: '*/12.6']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/agpenton/geotools-docker.git']]])            }
+               checkout([$class: 'GitSCM', branches: [[name: '*/13.2']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/agpenton/geotools-docker.git']]])            }
         }
         stage('PostGIS') {
             steps {
